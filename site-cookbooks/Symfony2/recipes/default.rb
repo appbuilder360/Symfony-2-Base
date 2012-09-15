@@ -22,7 +22,7 @@ end
 
 execute "install-vendors" do
   cwd "/vagrant"
-  command "php /vagrant/composer.phar install"
+  command "php /vagrant/composer.phar update"
 end
 
 execute "link-resources" do
