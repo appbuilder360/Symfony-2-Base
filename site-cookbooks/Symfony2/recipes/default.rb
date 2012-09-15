@@ -16,8 +16,13 @@ web_app "symfony" do
   docroot "/vagrant/web"
 end
 
+execute "install-composer" do
+   command "php /vagrant/installer.php --install-dir=/vagrant/"
+end
+
 execute "install-vendors" do
-  command "php /vagrant/bin/vendors install --env=vagrant_dev"
+  cwd "/vagrant"
+  command "php /vagrant/composer.phar install"
 end
 
 execute "link-resources" do
