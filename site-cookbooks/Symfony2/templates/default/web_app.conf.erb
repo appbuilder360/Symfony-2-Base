@@ -1,0 +1,10 @@
+<VirtualHost *:80>
+  DocumentRoot <%= @params[:docroot] %>
+  <Directory <%= @params[:docroot] %>>
+    Options +FollowSymLinks +ExecCGI
+    AllowOverride All
+    Allow from All
+    DirectoryIndex index.php app_vagrant.php
+  </Directory>
+  Alias /sf /vagrant/web
+</VirtualHost>
